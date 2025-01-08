@@ -1,0 +1,989 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling with moving gradient background */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #212121;
+  background-image: linear-gradient(50deg, #ECF0F1, #1ABC9C, #16A085);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite; /* Apply animation for moving gradient */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Keyframes to move the gradient */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Header Styling */
+.header {
+  width: 100%;
+  background-color: #212121;
+  padding: 15px 0;
+  text-align: center;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h3 {
+  font-size: 20px;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+}
+
+.header qui {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 15px;
+  margin: 0 8px;
+  font-size: 30px;
+}
+
+/* Header links styling */
+.header a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  margin: 0 8px;
+  font-size: 16px;
+}
+
+.header a:hover {
+  background-color: #212121;
+  border-radius: 5px;
+}
+
+/* Main content area */
+h3 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  margin: 10px 0 20px; /* Adds margin to avoid overlap with the fixed header */
+}
+
+h3 font {
+  color: #333;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Main Title styling */
+h3:first-of-type {
+  font-size: 30px;
+  color: #333;
+  font-weight: 700;
+}
+
+/* Button Link Styling (Start Button) */
+a {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #212121;
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Hover effect for the button */
+a:hover {
+  background-color: #B5B5B5;
+  transform: scale(1.05); /* Slightly enlarges the button */
+}
+
+/* Click animation */
+a:active {
+  transform: scale(0.95); /* Button "presses" down slightly */
+  transition: all 0.1s ease-in-out;
+}
+
+/* Animation when the button is clicked (add a small bounce effect) */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply the bounce animation */
+a:focus {
+  animation: bounce 0.5s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h3 {
+    font-size: 22px;
+  }
+
+  .header h3 {
+    font-size: 18px;
+  }
+
+  a {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+}
+
+/* Main container */
+#quiz-container {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Input Section */
+#input-section {
+  display: block;
+  background-color: #fff; /* White background for the form */
+  padding: 30px;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+#input-section h2 {
+  font-size: 26px; /* Larger heading */
+  margin-bottom: 20px;
+  color: #333; /* Darker text color */
+}
+
+#input-section input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out; /* Smooth transition for input field */
+}
+
+#input-section input:focus {
+  border-color: #28A745; /* Green border when focused */
+  outline: none; /* Remove default focus outline */
+}
+
+#input-section button {
+  width: 100%;
+  padding: 15px;
+  background-color: #28A745;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease-in-out; /* Smooth background change on hover */
+}
+
+#input-section button:hover {
+  background-color: #6a029b; /* Darker green on hover */
+}
+
+#question-count {
+  font-size: 16px;
+  color: #333;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#question-count {
+  font-size: 16px;
+  color: #333;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+
+/* Flashcard container centering */
+#flashcard-container {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the flashcard vertically and horizontally */
+  perspective: 1000px; /* Required for flip effect */
+  position: relative;
+}
+
+/* Flashcard styling */
+.flashcard {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* The front and back faces */
+.front, .back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+/* Front face */
+.front {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Back face - Default green for correct answer */
+.back {
+  background-color: #2abb4e; /* Green for correct answer */
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+/* Additional class for the wrong answer (red back) */
+.flashcard.wrong .back {
+  background-color: #ff4c4c; /* Red for wrong answer */
+}
+
+/* Flip the flashcard */
+.flashcard.flip {
+  transform: rotateY(180deg);
+}
+
+/* Question and answers section */
+#question-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+#answers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#answers-container button {
+  width: 100%;
+  padding: 15px;
+  background-color: #212121;
+  color: #333;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#answers-container button:hover {
+  background-color: #B5B5B5;
+}
+
+/* Result section */
+#result-section {
+  display: none;
+  text-align: center;
+  background-color: #ffffff; /* White background for clean design */
+  border-radius: 12px; /* Rounded corners for modern look */
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  max-width: 600px;
+  margin: auto;
+  animation: fadeIn 1s ease-out; /* Smooth fade-in effect */
+}
+
+#result-section h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #212121; /* Dark color for the title */
+  margin-bottom: 20px;
+}
+
+#score {
+  font-size: 36px;
+  font-weight: bold;
+  color: #28A745; /* Green color for a positive feel */
+  margin: 15px 0;
+  animation: bounceIn 1s ease; /* Bounce effect for score */
+}
+
+#retake-quiz,
+#recreate-questions {
+  background-color: #212121;
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#retake-quiz:hover,
+#recreate-questions:hover {
+  background-color: #212121;
+  transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+#retake-quiz:active,
+#recreate-questions:active {
+  transform: scale(0.95); /* Slightly shrinks on click */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design for Results */
+@media (max-width: 768px) {
+  #result-section {
+    padding: 20px;
+    width: 90%;
+  }
+
+  #result-section h2 {
+    font-size: 24px;
+  }
+
+  #score {
+    font-size: 28px;
+  }
+
+  #retake-quiz,
+  #recreate-questions {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+}
+
+/* Button styling */
+button {
+  background-color: #212121;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #B5B5B5;
+}
+
+/* Button Link Styling (Start Button) */
+b {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #212121;
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Hover effect for the button */
+b:hover {
+  background-color: #B5B5B5;
+  transform: scale(1.05); /* Slightly enlarges the button */
+}
+
+/* Click animation */
+b:active {
+  transform: scale(0.95); /* Button "presses" down slightly */
+  transition: all 0.1s ease-in-out;
+}
+
+/* Animation when the button is clicked (add a small bounce effect) */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply the bounce animation */
+b:focus {
+  animation: bounce 0.5s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h3 {
+    font-size: 22px;
+  }
+
+  .header h3 {
+    font-size: 18px;
+  }
+
+  b {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+} 
+
+/* Button Link Styling (Start Button) */
+button {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #212121;
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Hover effect for the button */
+button:hover {
+  background-color: #B5B5B5;
+  transform: scale(1.05); /* Slightly enlarges the button */
+}
+
+/* Click animation */
+button:active {
+  transform: scale(0.95); /* Button "presses" down slightly */
+  transition: all 0.1s ease-in-out;
+}
+
+/* Animation when the button is clicked (add a small bounce effect) */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply the bounce animation */
+button c:focus {
+  animation: bounce 0.5s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h3 {
+    font-size: 22px;
+  }
+
+  .header h3 {
+    font-size: 18px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+}
+
+/* General reset for margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff; /* Light background color */
+  color: #ffffff;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Main frontpage container */
+.frontpage {
+  width: 100%;
+  max-width: 900px;
+  background-color: #ffffff; /* White background for clarity */
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Light shadow */
+  text-align: center; /* Center text */
+  margin-top: 25px; /* Margin to give space from the top */
+}
+
+.frontpa {
+  width: 100%;
+  max-width: 600px;
+  background-color: #ffffff; /* White background for clarity */
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Light shadow */
+  text-align: center; /* Center text */
+  margin-top: 10px; /* Margin to give space from the top */
+}
+
+/* Headline for 'Create Your Own Learning Experience' */
+.frontpa h6 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000000;
+  margin-top: -5px;
+  margin-bottom: -30px;
+  text-transform: uppercase; /* Uppercase for more emphasis */
+  letter-spacing: 1px; /* Adding some spacing to the letters */
+}
+
+/* Headline for 'Create Your Own Learning Experience' */
+.frontpage h6 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0px;
+  text-transform: uppercase; /* Uppercase for more emphasis */
+  letter-spacing: 1px; /* Adding some spacing to the letters */
+}
+
+/* Paragraph text styling */
+.frontpage p {
+  font-size: 1.100rem;
+  color: #424242;
+  margin-top: 0px;
+  padding: 00px;
+  border-radius: 8px;
+  line-height: 1.8; /* Line height for better readability */
+  max-width: 800px; /* Limit the width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.key-features-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000000;
+  margin-top: 20px;  /* Adjust this value to move the title higher */
+  margin-bottom: -10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Unordered list styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  color: #424242;
+  text-align: left;
+  display: inline-block;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+ul li {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.8;
+}
+
+/* Custom bullets for the list */
+ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  color: #4973ff; /* Blue color for bullets */
+  top: 0;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .frontpage {
+      padding: 20px;
+  }
+
+  .frontpage h6 {
+      font-size: 1.6rem; /* Smaller font size on mobile */
+  }
+
+  .frontpage p {
+      font-size: 1rem;
+  }
+
+  .key-features-title {
+      font-size: 1.25rem;
+  }
+
+  ul li {
+      font-size: 1rem;
+  }
+}
+
+ /* Contact Page Specific Styles */
+ #contact-container {
+  margin: auto;
+ }
+ 
+
+.contact-wrapper {
+  display: flex;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  overflow: hidden;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.contact-info {
+  flex: 1;
+  background-color: #212121;
+  color: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-form {
+  flex: 1;
+  padding: 50px;
+  background-color: #f9f9f9;
+}
+
+.contact-info h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info p i {
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.contact-form h2 {
+  text-align: center;
+  color: #212121;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #212121;
+  outline: none;
+}
+
+#submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #212121;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#submit-btn:hover {
+  background-color: #B5B5B5;
+}
+
+#form-status {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-wrapper {
+      flex-direction: column;
+  }
+
+  .contact-info, 
+  .contact-form {
+      flex: none;
+      width: 100%;
+      padding: 30px;
+  }
+}
+/* Welcome Section Styling */
+#welcome-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.text-background {
+  background-color: #B5B5B5;  /* Semi-transparent background */
+  padding: 10px 20px;  /* More padding */
+  border-radius: 15px;  /* More rounded corners */
+  color: white;  /* White text for better contrast */
+  font-size: 2.5rem;  /* Larger font size */
+  margin-bottom: 20px;  /* Space below the title */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);  /* Subtle shadow */
+  max-width: 100%;
+  width: fit-content;
+}
+
+#welcome-text {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.rounded-image {
+  max-width: 80%;  /* Responsive image size */
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .text-background {
+      font-size: 2rem;
+      padding: 8px 15px;
+  }
+
+  .rounded-image {
+      max-width: 90%;
+  }
+}
+
+
+#welcome-section h1 {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 2px;
+  color: #000000;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+#welcome-section h3:first-of-type {
+  font-family: 'Architects+Daughter', cursive;
+  color: #000000;
+}
+
+#welcome-section p {
+  font-family: 'Indie+Flower', cursive;
+  font-size: 18px;
+  color: #333;
+}
+
+#welcome-section ul {
+  font-family: 'Fredoka+One', cursive;
+  color: #080214;
+}
+
+#welcome-section .key-features-title {
+  font-family: 'Pacifico', cursive;
+  color: #080008;
+}
+
+
+/* Timer Styling */
+#timer-display {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 20px; /* Space between timer and flashcard */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+  margin: auto;
+}
+
+#timer-display.critical {
+  background-color: #212121; /* Red background when critical */
+}
+
+#timer-display.warning {
+  background-color: #FFEB3B; /* Yellow background when getting close */
+}
+
+/* Input and form styling */
+input[type="text"] {
+  padding: 8px;
+  margin: 10px;
+  width: 80%;
+}
+
+#result-section, #quiz-section {
+  text-align: center;
+}
+
+/* Style for the Quiz */
+#quiz-container {
+  width: 60%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for Result Section */
+#result-section {
+  margin-top: 30px;
+}
+
+#result-message {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+#score {
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 10px;
+}

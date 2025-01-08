@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Contact us - QuizCard </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="header">
+            <h3 align="center">
+                <font face="Arial" size="5" ><a href="index.html"><qui>QuizCard</qui></a></font>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <font face="Calibri" size="4">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="index.html">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="customFC.html">CUSTOM FC</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="contact.html">CONTACT US</a>
+                </font>
+            </h3>
+        </div>
+        <!-- Main Contact Container -->
+    <div id="contact-container">
+        <div class="contact-wrapper">
+            <!-- Contact Information Section -->
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> 
+                    Prenza National Highschool
+                </p>
+                <p>
+                    <i class="fas fa-envelope"></i> 
+                    jamesalano415@gmail.com
+                </p>
+                <p>
+                    <i class="fas fa-phone"></i> 
+                    09452185245
+                </p>
+                <p>
+                    <i class="fas fa-clock"></i> 
+                    Support Hours: 9 AM - 5 PM EST
+                </p>
+                <p>
+                 Hello, feel free to reach out to us with any questions, 
+                    feedback, or support inquiries. We're here to help!
+                </p>
+            </div>
+
+            <!-- Contact Form Section -->
+            <div class="contact-form">
+                <h2>Contact Our Team</h2>
+                
+                <form id="contact-form" action="#" method="POST">
+                    <!-- Name Input -->
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Enter your full name" 
+                            required 
+                            minlength="2" 
+                            maxlength="50"
+                        >
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Enter your email" 
+                            required 
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        >
+                    </div>
+
+                    <!-- Subject Input -->
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input 
+                            type="text" 
+                            id="subject" 
+                            name="subject" 
+                            placeholder="Enter message subject" 
+                            required 
+                            minlength="5" 
+                            maxlength="100"
+                        >
+                    </div>
+
+                    <!-- Message Textarea -->
+                    <div class="form-group">
+                        <label for="message">Your message</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            placeholder="Type your message here" 
+                            required 
+                            minlength="10" 
+                            maxlength="500"
+                            rows="5"
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submit-btn">Send Message</button>
+
+                    <!-- Form Submission Status -->
+                    <div id="form-status" class="status-message"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Form Handling -->
+    <script src="script.js"></script>
+</html>
