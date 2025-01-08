@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizCard.io</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h3 align="center">
+            <font face="Arial" size="5"> <qui>QuizCard</qui> </font>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <font face="Calibri" size="4">&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="index.html">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="customFC.html">CUSTOM FC</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="contact.html">CONTACT US</a>
+            </font>
+        </h3>
+    </div>
+    <div id="quiz-container">
+        <!-- Input Section (for adding questions) -->
+        <div id="input-section">
+            <h2>Add a Question</h2>
+            <form id="question-form">
+                <input type="text" id="question" placeholder="Enter question" required><br>
+                <input type="text" id="correct-answer" placeholder="Correct answer" required><br>
+                <input type="text" id="wrong-answer-1" placeholder="Wrong answer 1" required><br>
+                <input type="text" id="wrong-answer-2" placeholder="Wrong answer 2" required><br>
+                <input type="text" id="wrong-answer-3" placeholder="Wrong answer 3" required><br>
+                <a type="button" id="add-question">Add Question</a>
+            </form>
+            <div id="question-count">Questions added: 0</div>
+            <a id="start-quiz" style="display:none;">Start Quiz</a>
+        </div>
+
+        <!-- Quiz Section (where flashcard and questions appear) -->
+        <div id="quiz-section" style="display:none;">
+            <div id="flashcard-container">
+                <div id="timer-display">Time Left: 5s</div> <!-- Timer Display -->
+                <div id="flashcard" class="flashcard">
+                    <div class="front" id="question-text"></div>
+                    <div class="back" id="result-text"></div>
+                </div>
+            </div>
+            <div id="answers-list"></div> <!-- For showing answers below the flashcard -->
+            <b id="next-question" style="display:none;">Next Question</b>
+        </div>
+        <!-- Result Section -->
+        <div id="result-section" style="display:none;">
+            <h2>Quiz Completed!</h2>
+            <p id="score"></p>
+            <!-- Retake Quiz Button -->
+            <a id="retake-quiz">Retake Quiz</a>
+            <!-- Recreate Questions Button -->
+            <a id="recreate-questions">Recreate Questions</a>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
